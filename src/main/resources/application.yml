@@ -16,15 +16,6 @@ spring:
     gateway:
       routes:
         - id: user-service
-          #uri: http://localhost:8001/
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
-        - id: second-service
-          #uri: http://localhost:8002/
-          uri: lb://MY-SECOND-SERVICE
-          predicates:
-            - Path=/second-service/**
-          filters:
-            - AddRequestHeader=second-request, second-request-header2
-            - AddResponseHeader=second-response, second-response-header2
