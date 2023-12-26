@@ -17,12 +17,9 @@ spring:
       routes:
         - id: user-service
           #uri: http://localhost:8001/
-          uri: lb://MY-FIRST-SERVICE
+          uri: lb://USER-SERVICE
           predicates:
-            - Path=/first-service/**
-          filters:
-            - AddRequestHeader=first-request, first-request-header2
-            - AddResponseHeader=first-response, first-response-header2
+            - Path=/user-service/**
         - id: second-service
           #uri: http://localhost:8002/
           uri: lb://MY-SECOND-SERVICE
